@@ -1,0 +1,86 @@
+{
+  "info": {
+    "name": "Cloud Storage API",
+    "_postman_id": "cloud-storage-001",
+    "description": "Postman collection for Mini Cloud Storage System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"User1\"\n}" },
+        "url": {
+          "raw": "http://localhost:3000/users/create-user",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["users","create-user"]
+        }
+      }
+    },
+    {
+      "name": "Upload File",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fileName\": \"file1.png\",\n  \"fileSize\": 100,\n  \"fileHash\": \"abc123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/users/:userId/files",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["users",":userId","files"]
+        }
+      }
+    },
+    {
+      "name": "Delete File",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:3000/users/:userId/files/:fileId",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["users",":userId","files",":fileId"]
+        }
+      }
+    },
+    {
+      "name": "Get Storage Summary",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/users/:userId/storage-summary",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["users",":userId","storage-summary"]
+        }
+      }
+    },
+    {
+      "name": "List User Files",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/users/:userId/files",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["users",":userId","files"]
+        }
+      }
+    }
+  ]
+}
